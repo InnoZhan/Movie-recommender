@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+	<link rel="shortcut icon" href="">
+</head>
+<body>
+	<div class="header">
+		<h1 class="header-link" onclick="logout_fun()">Logout</h1>
+		<a href="/rated"><h1 class="header-link">Rated</h1></a>
+		<a href="/join"><h1 class="header-link">Exit room</h1></a>
+	</div>
+	<div class="content">
+		<div class="button" onclick="rate(0);"><h1>dislike</h1></div>
+		<div class="movie">
+			<img class="image" src="{{img}}">
+			<h1 class="info"><mark>Title:</mark> {{title}}</h1>
+			<h1 class="info"><mark>Prod:</mark> {{prod}}</h1>
+			<h1 class="info"><mark>Year:</mark> {{year}}</h1>
+			<h1 class="info"><mark>Rating:</mark> {{rating}}</h1>
+		</div>
+		<div class="button" onclick="rate(1);"><h1>like</h1></div>
+	</div>
+</body>
+<script>
+	function logout_fun() {
+		$.post( "/logout",  function( data ) {
+			if (data["status"]) {
+				window.location.replace("/");
+			} else {
+				alert("Internal error, try later.");
+			}
+		});
+	}
+
+	function rate(point) {
+		fid = {{fid}}
+
+		$.post( "/rate", { point, fid },  function( data ) {
+			if (data['status']) {
+				window.location.replace("/pick");
+			}
+		});
+	}
+</script>
+</html>

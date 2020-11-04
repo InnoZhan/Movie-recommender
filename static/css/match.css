@@ -1,0 +1,28 @@
+#header {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 50pt;
+    color: yellow;
+    background-color: black;
+    width: 50vw;
+}
+
+button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 10vh;
+    background-color: yellow;
+    border: none;
+    font-size: 30pt;
+    transform: translate(-50%, -50%);
+}
+
+button:hover {
+    opacity: 0.9;
+}

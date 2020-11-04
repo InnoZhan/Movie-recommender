@@ -1,0 +1,84 @@
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    display block;
+    padding: 0;
+    margin: 4pt;
+    border: none;
+    width: 100%;
+    height: 40pt;
+    font-size: 20pt;
+    text-align: center;
+    background-color: white;
+}
+
+input[type="button"] {
+    background-color: yellow;
+}
+
+.form-header {
+    text-align: center;
+    color: red;
+    font-weight: lighter;
+    margin-bottom: 5pt;
+    cursor: pointer;
+}
+
+.user-header {
+    text-align: center;
+    color: white;
+    font-weight: lighter;
+    margin-bottom: 5pt;
+    cursor: pointer;
+    font-size: 30pt;
+}
+
+.headers {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 4pt;
+}
+
+.active {
+    color: white;
+}
+
+.link {
+    opacity: 0.6
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+#username {
+    color: yellow;
+}
+
+#token-header {
+    color: white;
+    margin: 4pt;
+    text-align: center;
+}
+
+mark {
+    color: yellow;
+    background-color: transparent;
+}
+
+#reminder {
+    color: grey;
+    text-align: center;
+    font-size: 16pt;
+}

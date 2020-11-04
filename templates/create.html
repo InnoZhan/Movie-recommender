@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+</head>
+<body>
+	<div class="content">
+		<form action="" autocomplete="off">
+			<div class="headers">
+				<h1 class="user-header">Hi <mark id="username" >{{login}}</mark>!</h1>
+				<h1 class="link user-header" onclick="logout_fun()">Logout</h1>
+			</div>
+			<div class="headers">
+				<h1 class="form-header link" ><a href="/">Join room</a></h1>
+				<h1 class="form-header active" >Create room</h1>
+			</div>
+			<h1 id="reminder">Rooms exist for 24 hours only</h1>
+			<h1 id="token-header">Room token <mark id="token">{{token}}</mark></h1>
+			<input type="button" name="button" value="CREATE" onclick="create()">
+		</form>
+	</div>
+</body>
+<script>
+	function logout_fun() {
+		$.post( "/logout",  function( data ) {
+			if (data["status"]) {
+				window.location.replace("/");
+			} else {
+				alert("Internal error, try later.");
+			}
+		});
+	}
+
+	function create() {
+		token = $('#token').text();
+		console.log(token);
+
+		$.post( "/create", { token },  function( data ) {
+			if (data["status"]) {
+				window.location.replace("/pick");
+			} else {
+				alert("Sorry token already in use. Please reload the page");
+			}
+		});
+	}
+</script>
+</html>

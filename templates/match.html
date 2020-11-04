@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/match.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+</head>
+<body>
+	<div class="content">
+		<div class="button" onclick="home()"><h1>Home</h1></div>
+		<div class="movie">
+			<h1 id="header">Match</h1>
+			<img class="image" src="{{img}}">
+			<h1 class="info"><mark>Title:</mark> {{title}}</h1>
+			<h1 class="info"><mark>Prod:</mark> {{prod}}</h1>
+			<h1 class="info"><mark>Year:</mark> {{year}}</h1>
+			<h1 class="info"><mark>Rating:</mark> {{rating}}</h1>
+		</div>
+		<div class="button" onclick="skip()"><h1>Skip</h1></div>
+	</div>
+</body>
+<script>
+	function skip() {
+		fid = {{fid}}
+
+		$.post( "/skip", { fid },  function( data ) {
+			if (data['status']) {
+				window.location.replace("/pick");
+			} else {
+				window.location.replace("/");
+			}
+		});
+	}
+
+	function home() {
+		window.location.replace('/');
+	}
+</script>
+</html>

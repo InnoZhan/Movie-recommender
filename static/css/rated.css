@@ -1,0 +1,53 @@
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: white;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    margin: 20pt;
+}
+
+.movie img {
+    max-height: 30vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.description {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5pt;
+    font-size: min(2vh, 1.3vw);
+}
+
+mark {
+    color: yellow;
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: auto;
+}
+
+.page-title {
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-top: 30pt;
+    margin-bottom: 30pt;
+    font-size: 70pt;
+}
