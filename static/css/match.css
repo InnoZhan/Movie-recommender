@@ -10,19 +10,3 @@
     background-color: black;
     width: 50vw;
 }
-
-button {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 10vh;
-    background-color: yellow;
-    border: none;
-    font-size: 30pt;
-    transform: translate(-50%, -50%);
-}
-
-button:hover {
-    opacity: 0.9;
-}

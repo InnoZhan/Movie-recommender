@@ -30,6 +30,7 @@ mark {
 }
 
 .header {
+    z-index: 100;
     position: fixed;
     top: 0;
     background-color: yellow;

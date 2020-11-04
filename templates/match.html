@@ -3,12 +3,18 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/match.css') }}">
 	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" href="">
 	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
 </head>
 <body>
+	<div class="header">
+		<h1 class="header-link" onclick="logout_fun()">Logout</h1>
+		<a href="/rated"><h1 class="header-link">Rated</h1></a>
+		<a href="/join"><h1 class="header-link">Exit room</h1></a>
+	</div>
 	<div class="content">
 		<div class="button" onclick="home()"><h1>Home</h1></div>
 		<div class="movie">
