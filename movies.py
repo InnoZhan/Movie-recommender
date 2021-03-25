@@ -50,3 +50,4 @@ def get_movies():
         movies = json.loads(myfile.read())
         return movies
         
+load_movies()
