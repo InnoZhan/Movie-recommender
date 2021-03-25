@@ -3,14 +3,15 @@ from bs4 import BeautifulSoup
 import json
 
 
-def get_image(url):
+def get_image_and_summary(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
+    summary = soup.find("div", class_="summary_text").text
     link = soup.find("div", class_="poster").find('a')['href']
     page = requests.get("https://www.imdb.com"+link)
     soup = BeautifulSoup(page.content, 'html.parser')
-    img = soup.find("div", class_="MediaViewerImagestyles__PortraitContainer-sc-1qk433p-2 gIroZm").find('img')['src']
-    return img
+    img = soup.find("div", class_="MediaViewerImagestyles__PortraitContainer-sc-1qk433p-2 iUyzNI").find('img')['src']
+    return summary, img
 
 
 def load_movies():
@@ -26,23 +27,26 @@ def load_movies():
         prod = movie.findChildren(class_='titleColumn')[0].find('a')['title']
         rating = movie.findChildren(class_='ratingColumn imdbRating')[0].find('strong').text
         year = movie.findChildren(class_='titleColumn')[0].findChildren(class_='secondaryInfo')[0].text
-        img = get_image("https://www.imdb.com" +movie.findChildren(class_='titleColumn')[0].find('a')['href'])
+        summary, img = get_image_and_summary("https://www.imdb.com" +movie.findChildren(class_='titleColumn')[0].find('a')['href'])
+
         temp = {
             "img": img,
             "title": title,
             "prod": prod,
             "year": year,
-            "rating": rating
+            "rating": rating,
+            "summary": summary
         }
         movies[counter] = temp
         print(counter)
         counter += 1
-    with open("data_file.json", "w") as write_file:
+    with open("new_data_file.json", "w") as write_file:
         json.dump(movies, write_file)
     return movies
 
 
 def get_movies():
-    with open("data_file.json", "r") as myfile:
+    with open("new_data_file.json", "r") as myfile:
         movies = json.loads(myfile.read())
         return movies
+        

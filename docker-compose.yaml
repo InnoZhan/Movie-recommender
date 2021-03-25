@@ -1,0 +1,6 @@
+version: '3'
+services:
+    app:
+        image: zhandos1609/movies
+        ports:
+            - "5000:5000"
