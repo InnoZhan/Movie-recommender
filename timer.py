@@ -5,5 +5,5 @@ def run():
     kinopoisk.request()
 
 while True:
-    sleep(2)
+    sleep(86400)
     run()
