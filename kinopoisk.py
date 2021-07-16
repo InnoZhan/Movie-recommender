@@ -4,7 +4,7 @@ import requests
 token = "773ef8d43c2a8c025e5ced077efa302d"
 
 movies_per_page = 10
-max_movies = 1000
+max_movies = 10000
 max_pages = int(max_movies / movies_per_page)
 
 with open('start_index.txt', 'r') as f:
