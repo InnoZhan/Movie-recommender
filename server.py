@@ -293,7 +293,7 @@ def catch_all(u_path):
 
 if __name__ == "__main__":
     movies = get_movies()
-    app.secret_key = 'asdfyth54gd3445765gdfvdfv'
+    app.secret_key = 'any_key' # laret replaced
     app.run(host="0.0.0.0", debug=False)
     
     

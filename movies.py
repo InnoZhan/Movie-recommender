@@ -46,7 +46,7 @@ def load_movies():
 
 
 def get_movies():
-    with open("new_data_file.json", "r") as myfile:
+    with open("movies.json", "r") as myfile:
         movies = json.loads(myfile.read())
         return movies
         
