@@ -1,14 +1,15 @@
 import sqlite3
 
 
-# conn = sqlite3.connect('users.db')
-# c = conn.cursor()
-# c.execute("DROP TABLE users")
-# c.execute("""CREATE TABLE users (
-#             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-#             login TEXT NOT NULL,
-#             password TEXT NOT NULL
-#         )""")
+def create_db:
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("DROP TABLE users")
+    c.execute("""CREATE TABLE users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                login TEXT NOT NULL,
+                password TEXT NOT NULL
+            )""")
 
 
 def user_check(login):
