@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def create_db:
+def create_db():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("DROP TABLE users")
